@@ -1,0 +1,73 @@
+#include "Hooked.hpp"
+#include <locale>
+#include <codecvt>
+
+void UEngine_PostRender::hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanvas* Canvas)
+{
+	Canvas->K2_DrawText(Roboto, L"Severed Steel Trainer", SDK::FVector2D(Canvas->SizeX - 200, Canvas->SizeY - 1000), SDK::FVector2D(1,1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+	Canvas->K2_DrawText(Roboto, L"github.com/synthesinglegend", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 980), SDK::FVector2D(1, 1), SDK::FLinearColor(255, 0, 229, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+
+    const auto& pActors = pWorld->PersistentLevel->Actors;
+
+    if (!pActors || !pLocal || !pPlayerController || !pLocalPlayerPawn)
+        return;
+
+    Trainer_Handlers::HadleTrainerVariablesKeys();
+
+   for (const auto& pCurrentActor : pActors)
+   {
+      if (!pCurrentActor || !pCurrentActor->RootComponent)
+           continue;
+
+      if (pCurrentActor == pLocalPlayerPawn)
+          continue;
+
+      if (!pCurrentActor->IsA(SDK::ANPC::StaticClass()))
+           continue;
+
+      const auto& ActorLocation = pCurrentActor->RootComponent->RelativeLocation;
+
+      SDK::FVector2D w2s{};
+
+      const auto& pCurrentActorPawnOfActor = reinterpret_cast<SDK::ANPC*>(pCurrentActor);
+
+      if (pCurrentActorPawnOfActor->bIsDead)
+          continue;
+    
+      if (Trainer_Features::bNPC_ESPEnabled)
+      {
+          if (pPlayerController->ProjectWorldLocationToScreen(SDK::FVector(ActorLocation.X, ActorLocation.Y, ActorLocation.Z), &w2s, false))
+          {
+              Canvas->K2_DrawText(pEngine->SmallFont, L"NPC", SDK::FVector2D(w2s.X, w2s.Y - 45), SDK::FVector2D(1, 1), SDK::FLinearColor(255, 255, 255, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+              Canvas->K2_DrawText(pEngine->SmallFont, std::to_wstring(pCurrentActorPawnOfActor->HP).c_str(), SDK::FVector2D(w2s.X - 65, w2s.Y - 45), SDK::FVector2D(1, 1), SDK::FLinearColor(255, 255, 255, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+          }
+      }
+
+      if (Trainer_Features::bNPC_DontAttackLocalActor)
+      {
+          Canvas->K2_DrawText(Roboto, L"Trainer_Features::bNPC_DontAttackLocalActor", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 950), SDK::FVector2D(1, 1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+          pCurrentActorPawnOfActor->bShouldShoot = false; // NPCs Ingore player exploit
+      }
+
+      if (Trainer_Features::bExploit_TeleportEnabled)
+      {
+          Canvas->K2_DrawText(Roboto, L"Trainer_Features::bExploit_TeleportEnabled", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 900), SDK::FVector2D(1, 1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+          pLocalPlayerPawn->K2_TeleportTo(SDK::FVector(ActorLocation.X, ActorLocation.Y, ActorLocation.Z), SDK::FRotator(pCurrentActor->RootComponent->RelativeRotation.Pitch, pCurrentActor->RootComponent->RelativeRotation.Yaw, pCurrentActor->RootComponent->RelativeRotation.Roll)); // Teleport exploit
+      }
+
+     /* if (Trainer_Features::bExploit_SpeedhackEnabled)
+      {
+          Canvas->K2_DrawText(Roboto, L"Trainer_Features::bExploit_SpeedhackEnabled", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 850), SDK::FVector2D(1, 1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+          pLocalPlayerMovement->MaxWalkSpeed = 10000.f;
+      }
+
+      if (Trainer_Features::bExploit_JumphackEnabled)
+      {
+          Canvas->K2_DrawText(Roboto, L"Trainer_Features::bExploit_JumphackEnabled", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 800), SDK::FVector2D(1, 1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+          pLocalPlayerMovement->JumpZVelocity = 10000.f;
+      }*/
+     
+   }
+
+	UEngine_PostRender::o_PostRender(ViewportClient, Canvas);
+}
