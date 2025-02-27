@@ -4,6 +4,10 @@ Trainer features:
  2. NPCs don't attack local actor
  3. Teleport to NPC 'exploit'
 
+Demo:
+
+https://www.youtube.com/watch?v=35zCTl6Dey8
+
 Credits:
 
 
