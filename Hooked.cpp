@@ -1,6 +1,4 @@
 #include "Hooked.hpp"
-#include <locale>
-#include <codecvt>
 
 void UEngine_PostRender::hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanvas* Canvas)
 {
@@ -46,7 +44,7 @@ void UEngine_PostRender::hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanva
       if (Trainer_Features::bNPC_DontAttackLocalActor)
       {
           Canvas->K2_DrawText(Roboto, L"Trainer_Features::bNPC_DontAttackLocalActor", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 950), SDK::FVector2D(1, 1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
-          pCurrentActorPawnOfActor->bShouldShoot = false; // NPCs Ingore player exploit
+          pCurrentActorPawnOfActor->bShouldShoot = false; // NPCs Don't attack player
       }
 
       if (Trainer_Features::bExploit_TeleportEnabled)

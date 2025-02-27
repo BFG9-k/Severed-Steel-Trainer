@@ -431,6 +431,7 @@
     <ClCompile Include="SDK\W_SpeechBubbles_functions.cpp" />
     <ClCompile Include="SDK\W_SpeechBubble_functions.cpp" />
     <ClCompile Include="SDK\XM8_functions.cpp" />
+    <ClCompile Include="Trainer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="3rdParty\ImGui\imconfig.h" />

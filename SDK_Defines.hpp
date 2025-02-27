@@ -6,7 +6,6 @@
 #include <dxgi.h>
 #include <d3d11.h>
 #include <stdint.h>
-#include <vector>
 
 inline SDK::UEngine* pEngine = SDK::UEngine::GetEngine();
 
