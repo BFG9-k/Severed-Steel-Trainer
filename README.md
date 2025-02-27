@@ -7,7 +7,7 @@ Trainer features:
 Credits:
 
 
-Matt Larrabee and Greylock Games Studio for creating Severed Steel
+Matt Larrabee (Greylock Games Studio) for creating Severed Steel
 
 
 Encryqed for creating Dumper-7 (SDK Generator)
