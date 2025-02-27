@@ -10,7 +10,7 @@ namespace UEngine_PostRender
 	inline PostRender_t o_PostRender;
 	inline int PostRender_IDX = 99;
 
-	void hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanvas* Canvas);
+	void __stdcall hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanvas* Canvas);
 }
 
 inline void Hooked_Setup()
