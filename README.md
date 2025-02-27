@@ -5,6 +5,8 @@ Trainer features:
  3. Teleport to NPC 'exploit'
 
 Credits:
+
+
 Matt Larrabee and Greylock Games Studio for creating Severed Steel
 
 
