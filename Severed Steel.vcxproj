@@ -151,12 +151,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="3rdParty\ImGui\imgui.cpp" />
-    <ClCompile Include="3rdParty\ImGui\imgui_demo.cpp" />
-    <ClCompile Include="3rdParty\ImGui\imgui_draw.cpp" />
-    <ClCompile Include="3rdParty\ImGui\imgui_impl_dx11.cpp" />
-    <ClCompile Include="3rdParty\ImGui\imgui_impl_win32.cpp" />
-    <ClCompile Include="3rdParty\ImGui\imgui_widgets.cpp" />
     <ClCompile Include="3rdParty\Minhook\buffer.c" />
     <ClCompile Include="3rdParty\Minhook\hde\hde32.c" />
     <ClCompile Include="3rdParty\Minhook\hde\hde64.c" />
@@ -434,14 +428,6 @@
     <ClCompile Include="Trainer.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="3rdParty\ImGui\imconfig.h" />
-    <ClInclude Include="3rdParty\ImGui\imgui.h" />
-    <ClInclude Include="3rdParty\ImGui\imgui_impl_dx11.h" />
-    <ClInclude Include="3rdParty\ImGui\imgui_impl_win32.h" />
-    <ClInclude Include="3rdParty\ImGui\imgui_internal.h" />
-    <ClInclude Include="3rdParty\ImGui\imstb_rectpack.h" />
-    <ClInclude Include="3rdParty\ImGui\imstb_textedit.h" />
-    <ClInclude Include="3rdParty\ImGui\imstb_truetype.h" />
     <ClInclude Include="3rdParty\Minhook\buffer.h" />
     <ClInclude Include="3rdParty\Minhook\hde\hde32.h" />
     <ClInclude Include="3rdParty\Minhook\hde\hde64.h" />

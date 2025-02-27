@@ -1,8 +1,5 @@
 #include "SDK_Defines.hpp"
 #include "3rdParty/Minhook/minhook.h"
-#include "3rdParty/ImGui/imgui.h"
-#include "3rdParty/ImGui/imgui_impl_win32.h"
-#include "3rdParty/ImGui/imgui_impl_dx11.h"
 
 namespace UEngine_PostRender
 {
