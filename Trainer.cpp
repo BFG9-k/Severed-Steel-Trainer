@@ -25,14 +25,14 @@ void Trainer_Handlers::HandleTrainerInitialization()
     freopen_s(&Dummy, "CONOUT$", "w", stdout);
     freopen_s(&Dummy, "CONIN$", "r", stdin);
 
+    std::cout << "Severed Steel Trainer\n";
+    std::cout << "https://github.com/BFG9-k\n\n";
     Hooked_Setup();
 
-    std::cout << "Severed Steel Trainer\n";
-    std::cout << "https://github.com/synthesinglegend\n\n";
-    std::cout << "Initialization completed\n";
+    std::cout << "Initialization is complete\n";
 
     std::cout << "Available features & exploits: \n";
     std::cout << "[F1] >> NPC ESP\n";
-    std::cout << "[F2] >> NPCs Don't attack Local Actor\n";
+    std::cout << "[F2] >> NPCs Don't attack Local actor\n";
     std::cout << "[F3] >> Exploit: Teleport to NPC\n";
 }

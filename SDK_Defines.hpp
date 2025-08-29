@@ -13,17 +13,16 @@ inline SDK::UWorld* pWorld = SDK::UWorld::GetWorld();
 
 inline SDK::UFont* Roboto = SDK::UObject::FindObject<SDK::UFont>("Font Roboto.Roboto");
 
-inline const auto& pLocal = pWorld->OwningGameInstance->LocalPlayers[0];
+namespace Global_Variables
+{
+	inline const auto& aLocalPlayers = pWorld->OwningGameInstance->LocalPlayers[0];
+	inline const auto& pPlayerController = aLocalPlayers->PlayerController;
+	inline const auto& pLocalPlayerPawn = pPlayerController->AcknowledgedPawn;
+	inline const auto& pLocalViewportClient = aLocalPlayers->ViewportClient;
+	inline const auto& pLocalPlayerMovement = pPlayerController->Character->CharacterMovement;
+}
 
-inline const auto& pPlayerController = pLocal->PlayerController;
-
-inline const auto& pLocalPlayerPawn = pPlayerController->AcknowledgedPawn;
-
-inline const auto& pLocalViewportClient = pLocal->ViewportClient;
-
-inline const auto& pLocalPlayerMovement = pPlayerController->Character->CharacterMovement;
-
-inline void** ppViewportClientVTable = pLocalViewportClient->VTable;
+inline void** ppViewportClientVTable = Global_Variables::pLocalViewportClient->VTable;
 
 namespace Trainer_Features
 {

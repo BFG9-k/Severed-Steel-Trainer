@@ -5,7 +5,7 @@ namespace UEngine_PostRender
 {
 	using PostRender_t = void(__thiscall*)(SDK::UObject*, SDK::UObject*);
 	inline PostRender_t o_PostRender;
-	inline int PostRender_IDX = 99;
+	inline constexpr int PostRender_IDX = 99;
 
 	void __stdcall hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanvas* Canvas);
 }
@@ -20,5 +20,4 @@ inline void Hooked_Setup()
 
 	if (MH_EnableHook(MH_ALL_HOOKS) != MH_OK) 
 		throw std::runtime_error(("Hooked_Setup: MH_EnableHook(MH_ALL_HOOKS) != MH_OK"));
-
 }
