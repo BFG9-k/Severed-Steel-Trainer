@@ -3,10 +3,9 @@
 void UEngine_PostRender::hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanvas* Canvas)
 {
 	Canvas->K2_DrawText(Roboto, L"Severed Steel Trainer", SDK::FVector2D(Canvas->SizeX - 200, Canvas->SizeY - 1000), SDK::FVector2D(1,1), SDK::FLinearColor(0, 255, 208, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
-	Canvas->K2_DrawText(Roboto, L"github.com/synthesinglegend", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 980), SDK::FVector2D(1, 1), SDK::FLinearColor(255, 0, 229, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
+	Canvas->K2_DrawText(Roboto, L"https://github.com/BFG9-k", SDK::FVector2D(Canvas->SizeX - 220, Canvas->SizeY - 980), SDK::FVector2D(1, 1), SDK::FLinearColor(255, 0, 229, 255), 1.f, SDK::FLinearColor(51, 255, 0, 200), SDK::FVector2D(0, 0), true, true, true, SDK::FLinearColor(51, 255, 0));
 
     const auto& pActors = pWorld->PersistentLevel->Actors;
-
     if (!pActors || !Global_Variables::aLocalPlayers || !Global_Variables::pPlayerController || !Global_Variables::pLocalPlayerPawn)
         return;
 
@@ -24,7 +23,6 @@ void UEngine_PostRender::hk_PostRender(SDK::UObject* ViewportClient, SDK::UCanva
       const auto& ActorRotation = pCurrentActor->RootComponent->RelativeRotation;
 
       const auto& pCurrentActorPawn = reinterpret_cast<SDK::ANPC*>(pCurrentActor);
-
       if (pCurrentActorPawn->bIsDead)
           continue;
     
